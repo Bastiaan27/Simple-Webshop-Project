@@ -8,12 +8,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="app\public\style.css">
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
   <a class="navbar-brand" href="#">Gamerz</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -30,9 +35,9 @@
           Consoles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/consoles">Gamecube</a>
-          <a class="dropdown-item" href="#">Playstation 2</a>
-          <a class="dropdown-item" href="#">Xbox</a>
+          <a class="dropdown-item" href="/consoles">Switch</a>
+          <a class="dropdown-item" href="#">Switch Lite</a>
+          <a class="dropdown-item" href="#">Switch OLED</a>
         </div>
       </li>
 
@@ -41,9 +46,7 @@
           Games
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="#">Gamecube games</a>
-          <a class="dropdown-item" href="#">Playstation 2 games</a>
-          <a class="dropdown-item" href="#">Xbox games</a>
+        <a class="dropdown-item" href="#">Switch Games</a>
         </div>
       </li>
 
@@ -55,7 +58,7 @@
   </div>
 </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-ride="carousel">
 
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
