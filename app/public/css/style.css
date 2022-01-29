@@ -1,6 +1,41 @@
-* {
-    background-color: darkslategray;
+body {
+    background-color: rgb(44, 44, 44);
+    max-width: 80%;
+    margin: auto;
 }
-nav {
-    margin-bottom: 1000px;
+li {
+    color: white;
+}
+h2 {
+    color: white;
+}
+p {
+    color: white;
+}
+label {
+    color: white;
+}
+.carousel-item img{
+    max-height: 700px;
+}   
+.card {
+    min-height: 450px;
+    margin: 10px 10px 10px 10px;
+}
+.dropdown-menu {
+    background-color: dimgray;
+    border-radius: 0%;
+    border-color: black;
+}
+.dropdown-item {
+    color: white;
+}
+.form-group {
+    color: white;
+}
+.card-text {
+    color: black;
+}
+.login-title {
+    color: white;
 }

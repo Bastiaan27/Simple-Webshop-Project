@@ -3,13 +3,21 @@ class ArrayRouter {
     public function route($uri) {
         // defining routes
         $routes = array(
-            '' => array(
+            'home' => array(
                 'controller' => 'homecontroller',
                 'method' => 'index'
             ),
             'about' => array(
                 'controller' => 'homecontroller',
                 'method' => 'about'
+            ),
+            'login' => array(
+                'controller' => 'logincontroller',
+                'method' => 'index'
+            ),
+            'register' => array(
+                'controller' => 'registercontroller',
+                'method' => 'index'
             ),
         );
 

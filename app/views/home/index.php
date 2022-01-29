@@ -1,3 +1,15 @@
+<?php
+require __DIR__ . '/../../services/consoleservice.php';
+$consoleService = new ConsoleService();
+$consoles = $consoleService->getAll();
+
+require __DIR__ . '/../../services/gameservice.php';
+$gameService = new GameService();
+$games = $gameService->getAll();
+
+include __DIR__ . '/../navbar.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,45 +28,6 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 navclass">
-    <a class="navbar-brand" href="#">Gamerz</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Consoles
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/consoles">Switch</a>
-          </div>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Games
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Switch Games</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
-
   <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
@@ -65,7 +38,7 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="https://assets-prd.ignimgs.com/2021/05/20/6zfwvgq2uyz61-1621544885212.jpg" alt="First slide">
+        <img class="d-block w-100" src="https://playsense.nl/wp-content/uploads/2021/10/Nintendo-switch-oled-1.jpg" alt="First slide">
       </div>
 
       <div class="carousel-item">
@@ -89,6 +62,76 @@
 
   </div>
 
+  <div class="row">
+    <div class="col align-items-start d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="<?php echo $consoles[0]->getPhotos(); ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $consoles[0]->getName(); ?></h5>
+          <p class="card-text"><?php echo $consoles[0]->getDescription(); ?></p>
+          <a href="#" class="btn btn-primary">Place in cart</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col align-items-center d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="<?php echo $consoles[1]->getPhotos(); ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $consoles[1]->getName(); ?></h5>
+          <p class="card-text"><?php echo $consoles[1]->getDescription(); ?></p>
+          <a href="#" class="btn btn-primary">Place in cart</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col align-items-end d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="<?php echo $consoles[2]->getPhotos(); ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $consoles[2]->getName(); ?></h5>
+          <p class="card-text"><?php echo $consoles[2]->getDescription(); ?></p>
+          <a href="#" class="btn btn-primary">Place in cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col align-items-start d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="<?php echo $games[0]->getPhotos(); ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $games[0]->getName(); ?></h5>
+          <p class="card-text"><?php echo $games[0]->getDescription(); ?></p>
+          <a href="#" class="btn btn-primary">Place in cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col align-items-center d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="<?php echo $games[1]->getPhotos(); ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $games[1]->getName(); ?></h5>
+          <p class="card-text"><?php echo $games[1]->getDescription(); ?></p>
+          <a href="#" class="btn btn-primary">Place in cart</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col align-items-end d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="<?php echo $games[2]->getPhotos(); ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $games[2]->getName(); ?></h5>
+          <p class="card-text"><?php echo $games[2]->getDescription(); ?></p>
+          <a href="#" class="btn btn-primary">Place in cart</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -97,3 +140,7 @@
 </body>
 
 </html>
+
+<?php
+include __DIR__ . '/../footer.php';
+?>
