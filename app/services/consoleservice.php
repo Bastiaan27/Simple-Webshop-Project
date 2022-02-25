@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../repositories/consolerepository.php';
+require_once __DIR__ . '/../repositories/consolerepository.php';
 
 
 class ConsoleService {

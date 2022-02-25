@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../repositories/userrepository.php';
+require_once __DIR__ . '/../repositories/userrepository.php';
 
 
 class UserService {
@@ -13,17 +13,17 @@ class UserService {
 
     public function getByUserName($username) {
         //retrieve data
-        return $this->repo->getByUserName($username);
+        return $this->repository->getByUserName($username);
     }
 
     public function getUser($user) {
         // retrieve data
-        return $user = $this->getUser($user);
+        return $user = $this->repository->getUser($user);
     }
 
     public function insert($user) {
         // retrieve data
-        $this->insert($user);        
+        $this->repository->insert($user);        
     }
 }
 

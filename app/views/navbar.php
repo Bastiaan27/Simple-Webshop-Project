@@ -31,18 +31,27 @@
             <li class="nav-item">
                 <a class="nav-link" href="https://youtu.be/dQw4w9WgXcQ">About us</a>
             </li>
+
             <?php
-            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-                echo '<li class="nav-item">
-                    <a class="dropdown-item" href="account>' . " " . $user->getUsername() . '</a>
-                    </li>';
+
+
+            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+                echo '<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="login">' . " " . $user->getUserName() . '</a>
+                    <form class="dropdown-item" function="home" method="post"><button type="submit" name="logout" class="btn logout-btn">Log out</button></form>
+                </div>
+                </li>';
             } else {
                 echo '<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Account
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="login">Login</a>
+                        <a class="dropdown-item" href="login">Log in</a>
                         <a class="dropdown-item" href="Register">Register</a>
                     </div>
                     </li>';

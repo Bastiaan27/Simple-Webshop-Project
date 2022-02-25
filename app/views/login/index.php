@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/../../services/userservice.php';
+require_once __DIR__ . '/../../models/user.php';
+require_once __DIR__ . '/../../services/userservice.php';
 $userService = new UserService();
 
 session_start();
@@ -12,7 +13,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 $errormsg = "";
 
 if (isset($_POST["sign-in"])) {
-    if ($_POST["username"] && $_POST["password"] != "") {
+    if ($_POST["username"] != "" && $_POST["password"] != "") {
 
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -20,7 +21,6 @@ if (isset($_POST["sign-in"])) {
         $user = $userService->getByUserName($username);
 
         if (password_verify($password, $user->getPassword())) {
-
             $_SESSION["loggedin"] = true;
             $_SESSION["user"] = $user;
             header("location: home");
@@ -45,6 +45,18 @@ include __DIR__ . '/../navbar.php';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
 
@@ -65,7 +77,6 @@ include __DIR__ . '/../navbar.php';
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me

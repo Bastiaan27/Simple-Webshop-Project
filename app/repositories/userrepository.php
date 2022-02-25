@@ -1,12 +1,12 @@
 <?php
-require __DIR__ . '/repository.php';
-require __DIR__ . '/../models/user.php';
+require_once __DIR__ . '/repository.php';
+require_once __DIR__ . '/../models/user.php';
 
 class UserRepository extends Repository
 {
     function getByUserName($username){
         try {
-            $stmt = $this->connection->prepare("SELECT `id`, `username`, `password`, `email`, `address` FROM `users` WHERE username='$username'");
+            $stmt = $this->connection->prepare("SELECT `id`, `username`, `password`, `email`, `address` FROM `users` WHERE username=?");
             $stmt->execute([$username]);
             
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
@@ -20,10 +20,10 @@ class UserRepository extends Repository
     function getUser($user)
     {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM consoletable WHERE name='$user->getName();' AND password='$user->getPassword();'");
+            $stmt = $this->connection->prepare("SELECT `id`, `username`, `password`, `email`, `address` FROM `users` WHERE name='$user->getName();' AND password='$user->getPassword();'");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Console');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
             $user = $stmt->fetch();
 
             return $user;
@@ -34,9 +34,9 @@ class UserRepository extends Repository
 
     function insert($user) {
         try {
-            $stmt = $this->connection->prepare("INSERT into users (name, password, email, address, poatal_code) VALUES (?,?,?,?,?)");            
-            
-            $stmt->execute([$user->getName(), $user->getPassword(), $user->getEmail(), $user->getAddress(), $user->getPostalCode()]);
+            $stmt = $this->connection->prepare("INSERT INTO users (username, `password`, email, `address`) VALUES (?,?,?,?)"); 
+
+            $stmt->execute([$user->getUserName(), $user->getPassword(), $user->getEmail(), $user->getAddress()]);
 
         } catch (PDOException $e) {
             echo $e;

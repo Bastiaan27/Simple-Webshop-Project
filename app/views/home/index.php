@@ -1,11 +1,7 @@
 <?php
-require __DIR__ . '/../../services/consoleservice.php';
-$consoleService = new ConsoleService();
-$consoles = $consoleService->getAll();
-
-require __DIR__ . '/../../services/gameservice.php';
-$gameService = new GameService();
-$games = $gameService->getAll();
+require_once __DIR__ . '/../../models/user.php';
+require_once __DIR__ . '/../../models/cart.php';
+require_once __DIR__ . '/../../services/consoleservice.php';
 
 include __DIR__ . '/../navbar.php';
 ?>
@@ -19,6 +15,18 @@ include __DIR__ . '/../navbar.php';
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta charset="UTF-8">
@@ -42,11 +50,11 @@ include __DIR__ . '/../navbar.php';
       </div>
 
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://sm.mashable.com/t/mashable_sea/photo/default/ps2-20th-anniversary-2_ykd6.h960.jpg" alt="Second slide">
+        <img class="d-block w-100" src="https://media.s-bol.com/O5M95Jv8RowG/ZV47mp8/1200x721.jpg" alt="Second slide">
       </div>
 
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://cdn.mos.cms.futurecdn.net/7Rgi9ibCtqewHE933cuJZ5.jpg" alt="Third slide">
+        <img class="d-block w-100" src="https://cdn.vox-cdn.com/thumbor/i1foY_s0nbZYI7cEMzFS-ai11b4=/103x0:1155x701/1400x1050/filters:focal(103x0:1155x701):format(png)/cdn.vox-cdn.com/uploads/chorus_image/image/51433665/Screen_Shot_2016-10-20_at_9.00.45_AM__2_.0.0.png" alt="Third slide">
       </div>
     </div>
 
@@ -96,47 +104,6 @@ include __DIR__ . '/../navbar.php';
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col align-items-start d-flex justify-content-center">
-      <div class="card" style="width: 18rem;">
-        <img src="<?php echo $games[0]->getPhotos(); ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $games[0]->getName(); ?></h5>
-          <p class="card-text"><?php echo $games[0]->getDescription(); ?></p>
-          <a href="#" class="btn btn-primary">Place in cart</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="col align-items-center d-flex justify-content-center">
-      <div class="card" style="width: 18rem;">
-        <img src="<?php echo $games[1]->getPhotos(); ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $games[1]->getName(); ?></h5>
-          <p class="card-text"><?php echo $games[1]->getDescription(); ?></p>
-          <a href="#" class="btn btn-primary">Place in cart</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col align-items-end d-flex justify-content-center">
-      <div class="card" style="width: 18rem;">
-        <img src="<?php echo $games[2]->getPhotos(); ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $games[2]->getName(); ?></h5>
-          <p class="card-text"><?php echo $games[2]->getDescription(); ?></p>
-          <a href="#" class="btn btn-primary">Place in cart</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

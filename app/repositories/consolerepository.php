@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/repository.php';
-require __DIR__ . '/../models/console.php';
+require_once __DIR__ . '/../models/console.php';
 
 class ConsoleRepository extends Repository
 {
@@ -10,7 +10,7 @@ class ConsoleRepository extends Repository
             $stmt = $this->connection->prepare("SELECT `id`, `name`, `description`, `price`, `amount`, `photos`, `region` FROM `consoletable`");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'ShopItem');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Console');
             $consoles = $stmt->fetchAll();
 
             return $consoles;

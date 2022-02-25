@@ -19,6 +19,10 @@ class ArrayRouter {
                 'controller' => 'registercontroller',
                 'method' => 'index'
             ),
+            'cart' => array(
+                'controller' => 'cartcontroller',
+                'method' => 'index'
+            ),
         );
 
         // deal with undefined paths first
