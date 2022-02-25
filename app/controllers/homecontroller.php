@@ -1,7 +1,5 @@
 <?php
 require __DIR__ . '/controller.php';
-require_once __DIR__ . '/../models/user.php';
-require_once __DIR__ . '/../models/cart.php';
 require_once __DIR__ . '/../services/consoleservice.php';
 
 class HomeController extends Controller
@@ -16,8 +14,11 @@ class HomeController extends Controller
 
     public function index()
     {
+        require_once __DIR__ . '/../models/user.php';
+        require_once __DIR__ . '/../models/cart.php';
         $consoles = $this->consoleService->getAll();
         session_start();
+        $user;
 
         if (!isset($_SESSION["cart"])) {
             $_SESSION["cart"] = new Cart();
@@ -36,6 +37,6 @@ class HomeController extends Controller
             $user = $_SESSION["user"];
         }
 
-        $this->displayView($consoles);
+        include '../views/home/index.php';
     }
 }

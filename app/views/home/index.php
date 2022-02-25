@@ -1,8 +1,4 @@
 <?php
-require_once __DIR__ . '/../../models/user.php';
-require_once __DIR__ . '/../../models/cart.php';
-require_once __DIR__ . '/../../services/consoleservice.php';
-
 include __DIR__ . '/../navbar.php';
 ?>
 
@@ -77,7 +73,7 @@ include __DIR__ . '/../navbar.php';
         <div class="card-body">
           <h5 class="card-title"><?php echo $consoles[0]->getName(); ?></h5>
           <p class="card-text"><?php echo $consoles[0]->getDescription(); ?></p>
-          <a href="#" class="btn btn-primary">Place in cart</a>
+          <a href="cart" class="btn btn-primary">Place in cart</a>
         </div>
       </div>
     </div>
@@ -88,7 +84,7 @@ include __DIR__ . '/../navbar.php';
         <div class="card-body">
           <h5 class="card-title"><?php echo $consoles[1]->getName(); ?></h5>
           <p class="card-text"><?php echo $consoles[1]->getDescription(); ?></p>
-          <a href="#" class="btn btn-primary">Place in cart</a>
+          <a href="cart" class="btn btn-primary">Place in cart</a>
         </div>
       </div>
     </div>
@@ -99,7 +95,7 @@ include __DIR__ . '/../navbar.php';
         <div class="card-body">
           <h5 class="card-title"><?php echo $consoles[2]->getName(); ?></h5>
           <p class="card-text"><?php echo $consoles[2]->getDescription(); ?></p>
-          <a href="#" class="btn btn-primary">Place in cart</a>
+          <a href="cart" class="btn btn-primary">Place in cart</a>
         </div>
       </div>
     </div>
