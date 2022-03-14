@@ -11,7 +11,8 @@ class ArticleController {
     }
 
     public function index() {
-      
+        
+        echo json_encode($articles = $this->articleService->getAll());
         // your code here
         // return all articles in the database as JSON
         
