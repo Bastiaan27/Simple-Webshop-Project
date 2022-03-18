@@ -28,7 +28,7 @@ include __DIR__ . '/../navbar.php';
     <meta charset="UTF-8">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="http://localhost/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>

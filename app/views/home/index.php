@@ -28,7 +28,7 @@ include __DIR__ . '/../navbar.php';
   <meta charset="UTF-8">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="http://localhost/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -66,40 +66,11 @@ include __DIR__ . '/../navbar.php';
 
   </div>
 
-  <div class="row">
-    <div class="col align-items-start d-flex justify-content-center">
-      <div class="card" style="width: 18rem;">
-        <img src="<?php echo $consoles[0]->getPhotos(); ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $consoles[0]->getName(); ?></h5>
-          <p class="card-text"><?php echo $consoles[0]->getDescription(); ?></p>
-          <a href="cart" class="btn btn-primary">Place in cart</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col align-items-center d-flex justify-content-center">
-      <div class="card" style="width: 18rem;">
-        <img src="<?php echo $consoles[1]->getPhotos(); ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $consoles[1]->getName(); ?></h5>
-          <p class="card-text"><?php echo $consoles[1]->getDescription(); ?></p>
-          <a href="cart" class="btn btn-primary">Place in cart</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col align-items-end d-flex justify-content-center">
-      <div class="card" style="width: 18rem;">
-        <img src="<?php echo $consoles[2]->getPhotos(); ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $consoles[2]->getName(); ?></h5>
-          <p class="card-text"><?php echo $consoles[2]->getDescription(); ?></p>
-          <a href="cart" class="btn btn-primary">Place in cart</a>
-        </div>
-      </div>
-    </div>
+  <div class="row" id="consolerow">
+    
   </div>
+  <!-- Custom JS for loading in the products -->
+  <script src="js/productpage.js"></script>
 </body>
 
 </html>

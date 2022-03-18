@@ -20,8 +20,8 @@ class UserRepository extends Repository
     function getUser($user)
     {
         try {
-            $stmt = $this->connection->prepare("SELECT `id`, `username`, `password`, `email`, `address` FROM `users` WHERE name='$user->getName();' AND password='$user->getPassword();'");
-            $stmt->execute();
+            $stmt = $this->connection->prepare("SELECT `id`, `username`, `password`, `email`, `address` FROM `users` WHERE `name`=? AND `password`=?");
+            $stmt->execute([$user->getUserName(), $user->getPassword()]);
 
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
             $user = $stmt->fetch();

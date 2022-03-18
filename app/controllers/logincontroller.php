@@ -19,6 +19,9 @@ class LoginController extends Controller
         $errormsg = "";
 
         if (isset($_POST["sign-in"])) {
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+
             if ($_POST["username"] != "" && $_POST["password"] != "") {
 
                 $username = $_POST["username"];

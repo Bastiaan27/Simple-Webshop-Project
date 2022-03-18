@@ -11,6 +11,9 @@ class RegisterController extends Controller
         $errormsg = "";
 
         if (isset($_POST["register"])) {
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+
             if ($_POST["username"] && $_POST["password"] != "") {
                 $user = new User();
                 $user->setUsername($_POST["username"]);

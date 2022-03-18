@@ -1,6 +1,6 @@
 <?php 
 
-class Console {
+class Console implements JsonSerializable{
     private int $id;
     private string $name;
     private string $description;
@@ -8,6 +8,11 @@ class Console {
     private int $amount;
     private string $photos;
     private string $region;
+
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
+    }
 
     public function getId(): int
     {
