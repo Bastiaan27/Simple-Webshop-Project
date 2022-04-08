@@ -13,7 +13,7 @@ class OrderService {
         return $this->repository->getOrderByTime($posted_at);
     }
     
-    public function insert($order) {
-        return $this->repository->insert($order);
+    public function insertORder($order) {
+        return $this->repository->insertOrder($order);
     }
 }

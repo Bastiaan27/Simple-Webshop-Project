@@ -34,8 +34,16 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="login">' . " " . $user->getUserName() . '</a>
                     <form class="dropdown-item" function="home" method="post"><button type="submit" name="logout" class="btn logout-btn">Log out</button></form>
-                </div>
-                </li>';
+                </div>';
+
+                if ($user->getRole() == "admin") {
+                    echo '<li class="nav-item">
+                    <a class="nav-link" href="consolecrud">Console CRUD</a>
+                    </li>';
+                }
+                else {
+                    echo '</li>';
+                }
             } else {
                 echo '<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

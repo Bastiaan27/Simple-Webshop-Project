@@ -18,13 +18,21 @@ class UserService {
 
     public function getUser($user) {
         // retrieve data
-        return $user = $this->repository->getUser($user);
+        return $this->repository->getUser($user);
     }
 
-    public function insert($user) {
+    public function insertUser($user) {
         // retrieve data
-        $this->repository->insert($user);        
+        $this->repository->insertUser($user);
+    }
+
+    public function updateUser($user) {
+        // retrieve data
+        $this->repository->updateUser($user);
+    }
+
+    public function deleteUser($id) {
+        // retrieve data
+        $this->repository->deleteUser($id);
     }
 }
-
-?>

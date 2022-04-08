@@ -7,6 +7,7 @@ class User extends Model{
     private string $password;
     private string $email;
     private string $address;
+    private string $role;
 
     public function getId(): int
     {
@@ -67,4 +68,15 @@ class User extends Model{
 
         return $this;
     }
+
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+
 }

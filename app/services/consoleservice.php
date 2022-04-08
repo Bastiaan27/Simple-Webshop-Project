@@ -12,13 +12,26 @@ class ConsoleService {
 
     public function getAll() {
         // retrieve data
-        return $consoles = $this->repository->getAll();
+        return $this->repository->getAll();
     }
 
-    public function insert($console) {
+    public function getById($id) {
         // retrieve data
-        $this->repository->insert($console);        
+        return $this->repository->getById($id);
+    }
+
+    public function insertConsole($console) {
+        // retrieve data
+        $this->repository->insertConsole($console);
+    }
+
+    public function updateConsole($console) {
+        // retrieve data
+        $this->repository->updateConsole($console);
+    }
+
+    public function deleteConsole($id) {
+        // retrieve data
+        $this->repository->deleteConsole($id);
     }
 }
-
-?>

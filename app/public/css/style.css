@@ -1,6 +1,6 @@
 body {
     background-color: rgb(44, 44, 44);
-    max-width: 80%;
+    max-width: 100%;
     margin: auto;
 }
 li {
@@ -38,4 +38,10 @@ label {
 }
 .login-title {
     color: white;
+}
+.consoletable {
+    max-width: 100%;
+}
+.consolemanagement {
+    max-width: 100%;
 }

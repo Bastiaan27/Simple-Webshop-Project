@@ -10,7 +10,8 @@
         </div> */
 
 function loadConsoles() {
-    fetch("http://localhost/api/console")
+    fetch("https://wd-1-console-site.herokuapp.com/api/console")
+    //http://localhost/api/console
     .then(result => result.json())
     .then(consoles => {
         consoles.forEach(cons => {
