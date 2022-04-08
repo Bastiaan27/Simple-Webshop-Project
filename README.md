@@ -5,5 +5,12 @@ alleen heb ik besloten uiteindelijk om de cart weg te laten omdat dit extra prob
 dus er kan nu niks gekocht worden op de site.
 
 ## User Info:
-Username: Mark
-Password: mark
+Username: Mark </br>
+Password: mark</br>
+Role: Admin (Admin kan de consoles aanpassen via de Console Crud optie in de navbar)
+
+Username: test </br>
+Password: test </br>
+Role: User (User kan niks aanpassen)
+
+URL: https://wd-1-console-site.herokuapp.com/
