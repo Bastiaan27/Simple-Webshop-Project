@@ -67,8 +67,8 @@ CREATE TABLE `consoletable` (
 
 INSERT INTO `consoletable` (`id`, `name`, `description`, `price`, `amount`, `photos`, `region`) VALUES
 (1, 'Switch OLED White - Used Condition', 'This model has a few scars but is in perfect working condition. ', '200', 5, 'https://i.ebayimg.com/00/s/OTAyWDEwMjQ=/z/aEcAAOSw~rhh1cEI/$_84.JPG', 'PAL'),
-(5, 'Switch OLED White - Used Condition', 'This model has a few scars but is in perfect working condition. ', '200', 5, 'https://i.ebayimg.com/00/s/OTAyWDEwMjQ=/z/aEcAAOSw~rhh1cEI/$_84.JPG', 'PAL'),
-(6, 'Switch OLED White - Used Condition', 'This model has a few scars but is in perfect working condition. ', '200', 5, 'https://i.ebayimg.com/00/s/OTAyWDEwMjQ=/z/aEcAAOSw~rhh1cEI/$_84.JPG', 'PAL');
+(2, 'Switch OLED White - Used Condition', 'This model has a few scars but is in perfect working condition. ', '200', 5, 'https://i.ebayimg.com/00/s/OTAyWDEwMjQ=/z/aEcAAOSw~rhh1cEI/$_84.JPG', 'PAL'),
+(3, 'Switch OLED White - Used Condition', 'This model has a few scars but is in perfect working condition. ', '200', 5, 'https://i.ebayimg.com/00/s/OTAyWDEwMjQ=/z/aEcAAOSw~rhh1cEI/$_84.JPG', 'PAL');
 
 -- --------------------------------------------------------
 
