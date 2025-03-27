@@ -1,46 +1,55 @@
 <?php
 require __DIR__ . '/controller.php';
+require_once __DIR__ . '/../models/user.php';
+require_once __DIR__ . '/../services/userservice.php';
 
 class LoginController extends Controller
 {
+    private UserService $userService;
+
+    public function __construct()
+    {
+        $this->userService = new UserService();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
+
     public function index()
     {
-        require_once __DIR__ . '/../models/user.php';
-        require_once __DIR__ . '/../services/userservice.php';
-        $userService = new UserService();
-
-        session_start();
-
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-            header("location: home");
-            exit;
+            header("Location: home");
+            exit();
         }
 
         $errormsg = "";
 
-        if (isset($_POST["sign-in"])) {
-
-            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
-
-            if ($_POST["username"] != "" && $_POST["password"] != "") {
-
-                $username = $_POST["username"];
-                $password = $_POST["password"];
-
-                $user = $userService->getByUserName($username);
-
-                if (password_verify($password, $user->getPassword())) {
-                    $_SESSION["loggedin"] = true;
-                    $_SESSION["user"] = $user;
-                    header("location: home");
-                } else {
-                    $errormsg = "Password or username incorrect, please try again.";
-                }
-            } else {
-                $error = "Fill in all fields before submitting.";
-            }
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["sign-in"])) {
+            $this->handleLogin($errormsg);
         }
 
         include '../views/login/index.php';
+    }
+
+    private function handleLogin(&$errormsg)
+    {
+        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
+
+        if (!$username || !$password) {
+            $errormsg = "Fill in all fields before submitting.";
+            return;
+        }
+
+        $user = $this->userService->getByUserName($username);
+
+        if (password_verify($password, $user->getPassword())) {
+            $_SESSION["loggedin"] = true;
+            $_SESSION["user"] = $user;
+            header("Location: home");
+            exit();
+        } else {
+            $errormsg = "Password or username incorrect, please try again.";
+        }
     }
 }

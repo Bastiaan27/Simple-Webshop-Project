@@ -2,20 +2,14 @@
 require_once __DIR__ . '/model.php';
 require_once __DIR__ . '/console.php';
 
-class Cart extends Model{
-    private $cart = array();
+class Cart extends Model {
+    private $cart = [];
 
-    public function getCart(): array {
-        return $this->cart;
-    }
-
-    public function addToCart(Console $item){
-        array_push($this->cart, $item);
-    }
-
-    public function eraseFromCart(Console $item){
-        if (($key = array_search($item, $this->cart)) !== false) {
-            unset($this->items[$key]);
+    public function __construct() {
+        // Load cart from session if available
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
         }
+        $this->cart = $_SESSION['cart'];
     }
-}
+?>

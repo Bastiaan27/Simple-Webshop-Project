@@ -36,7 +36,7 @@
                     <form class="dropdown-item" function="home" method="post"><button type="submit" name="logout" class="btn logout-btn">Log out</button></form>
                 </div>';
 
-                if ($user->getRole() == "admin") {
+                if ($user->getRole() == Role::ADMIN) {
                     echo '<li class="nav-item">
                     <a class="nav-link" href="consolecrud">Console CRUD</a>
                     </li>';

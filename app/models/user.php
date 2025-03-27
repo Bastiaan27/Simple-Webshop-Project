@@ -1,5 +1,6 @@
 <?php 
 require_once __DIR__ . '/model.php';
+require_once __DIR__ . '/role.php';
 
 class User extends Model{
     private int $id;
@@ -7,7 +8,7 @@ class User extends Model{
     private string $password;
     private string $email;
     private string $address;
-    private string $role;
+    private Role $role;
 
     public function getId(): int
     {
@@ -40,7 +41,7 @@ class User extends Model{
 
     public function setPassword(string $password): self
     {
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password;
 
         return $this;
     }
@@ -69,14 +70,20 @@ class User extends Model{
         return $this;
     }
 
-    public function getRole(): string
+    public function getRole(): Role
     {
         return $this->role;
     }
 
-    public function setRole(string $role): void
+    // if it receives a string convert it to the Role enum
+    public function setRole($role): self
     {
-        $this->role = $role;
-    }
+        if (is_string($role)) {
+            $this->role = Role::from($role);
+        } else {
+            $this->role = $role;
+        }
 
+        return $this;
+    }
 }

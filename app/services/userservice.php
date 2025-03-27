@@ -16,11 +16,6 @@ class UserService {
         return $this->repository->getByUserName($username);
     }
 
-    public function getUser($user) {
-        // retrieve data
-        return $this->repository->getUser($user);
-    }
-
     public function insertUser($user) {
         // retrieve data
         $this->repository->insertUser($user);

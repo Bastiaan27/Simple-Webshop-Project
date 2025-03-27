@@ -4,20 +4,18 @@ require_once __DIR__ . '/../models/console.php';
 
 class ConsoleRepository extends Repository
 {
-    function getAll()
-    {
+    function getAll() {
         try {
             $stmt = $this->connection->prepare("SELECT id, name, description, price, amount, photos, region FROM consoletable");
             $stmt->execute();
-
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'Console');
-            $consoles = $stmt->fetchAll();
-
-            return $consoles;
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
-            echo $e;
+            error_log("Database error: " . $e->getMessage());
+            return [];
         }
     }
+    
 
     function getById($id)
     {

@@ -48,7 +48,9 @@ include __DIR__ . '/../navbar.php';
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
-                    <label class="error_msg">
+                </div>
+                <div class="mb-3">
+                    <label class="text-danger font-weight-bold">
                         <?php echo $errormsg ?>
                     </label>
                 </div>

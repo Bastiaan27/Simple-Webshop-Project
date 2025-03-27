@@ -59,23 +59,28 @@ include __DIR__ . '/../navbar.php';
                         <?php foreach ($consoles as $console) { ?>
                             <tr>
                                 <form function="consoletable" method="post">
-                                    <td><input name="id-console" class="idcol" type="number" value="<?= $console->getId() ?>" readonly></td>
-                                    <td><input name="name-console" class="namecol" type="text" value="<?= $console->getName() ?>"></td>
-                                    <td><input name="description-console" class="descriptioncol" type="text" value="<?= $console->getDescription() ?>"></td>
-                                    <td><input name="price-console" class="pricecol" type="number" value="<?= $console->getPrice() ?>"></td>
-                                    <td><input name="amount-console" class="amountcol" type="number" value="<?= $console->getAmount() ?>"></td>
-                                    <td><input name="photos-console" class="photoscol" type="text" value="<?= $console->getPhotos() ?>"></td>
-                                    <td><input name="region-console" class="regioncol" type="text" value="<?= $console->getRegion() ?>"></td>
-                                    <td><button class="btn save-btn text-dark" name="save-console" type="submit">Save</button></td>
-                                    <td><button class="btn btn-danger text-light" name="del-console" type="submit">Delete</button></td>
+                                <td><input name="id-console" class="idcol" type="number" value="<?= $console->getId() ?>" readonly></td>
+                                <td><input name="name-console" class="namecol" type="text" value="<?= $console->getName() ?>" maxlength="60"></td>
+                                <td><input name="description-console" class="descriptioncol" type="text" value="<?= $console->getDescription() ?>" maxlength="500"></td>
+                                <td><input name="price-console" class="pricecol" type="number" value="<?= $console->getPrice() ?>" min="1" max="9999999" step="0.01"></td>
+                                <td><input name="amount-console" class="amountcol" type="number" value="<?= $console->getAmount() ?>" min="1" max="10000"></td>
+                                <td><input name="photos-console" class="photoscol" type="text" value="<?= $console->getPhotos() ?>" maxlength="200"></td>
+                                <td><input name="region-console" class="regioncol" type="text" value="<?= $console->getRegion() ?>" maxlength="50"></td>
+                                <td><button class="btn save-btn text-dark" name="save-console" type="submit">Save</button></td>
+                                <td><button class="btn btn-danger text-light" name="del-console" type="submit">Delete</button></td>
                                 </form>
                             </tr>
                         <? } ?>
                         </tbody>
                     </table>
                     <button class="btn btn-success"><a href="newconsole" class="text-light">New Console</a></button>
-                    <div class="alert alert-danger" role="alert"><?= $error ?></div>
-                    <div class="alert alert-success" role="alert"><?= $confirmation ?></div>
+                    <?php if (!empty($error)): ?>
+                        <div class="alert alert-danger" role="alert"><?= htmlspecialchars($error) ?></div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($confirmation)): ?>
+                        <div class="alert alert-success" role="alert"><?= htmlspecialchars($confirmation) ?></div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

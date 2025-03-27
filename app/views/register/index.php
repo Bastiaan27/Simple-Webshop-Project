@@ -52,9 +52,11 @@ include __DIR__ . '/../navbar.php';
                     <label for="address">Address</label>
                     <input type="address" class="form-control" id="address" name="address" placeholder="Address">
                 </div>
-                <label class="error_msg">
-                    <?php echo $errormsg ?>
-                </label>
+                <div class="mb-3">
+                    <label class="text-danger font-weight-bold">
+                        <?php echo $errormsg ?>
+                    </label>
+                </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit" name="register" id="submit">Register</button>
                 <label><a href="login">Already an account? Login here</a></label>
             </form>
